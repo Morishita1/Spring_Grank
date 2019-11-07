@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+div.join-wrapper {
+	width: 600px;
+	border: 2px solid #00b894;
+	min-height: 300px;
+	margin: 100px auto 60px auto;
+}
+
+div.join-wrapper-header {
+	background-color: #00b894;
+	height: 45px;
+	width: 100%;
+	color: #fff;
+	font-size: 25px;
+}
+
+div.join-wrapper-content {
+	width: 580px;
+	margin: 0 auto;
+}
+
+.join-header-text {
+	font-size: 25px;
+	color: #fff;
+	padding-left: 10px;
+}
+
+.input-field {
+	width: 580px;
+	height: 40px;
+	margin-bottom: 25px;
+	background: #fff;
+	box-sizing: border-box;
+	border: solid 1px #dadada;
+}
+
+.input-field input {
+	border: none;
+	width: 560px;
+	height: 20px;
+	margin-top: 8px;
+	margin-left: 10px;
+}
+
+.join-label {
+	margin-top: 10px;
+}
+
+.join-label span {
+	font-size: 14px;
+}
+
+.join-address {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.address-btn {
+	width: 580px;
+	height: 35px;
+	border: none;
+	outline: none;
+	background: #00b894;
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.address {
+	width: 288px;
+	height: 30px;
+	border: solid 1px #dadada;
+	cursor: pointer;
+	outline: none;
+}
+#join-join-btn{
+        width: 580px;
+        height: 35px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 18px;
+        margin-bottom: 30px;
+        background: #00b894;
+}
+div.join-err {
+	display: none;
+	margin-top: 15px;
+	font-size: 14px;
+	color: red;
+}

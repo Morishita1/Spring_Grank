@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+.flex-wrapper {
+	width: 980px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+div.g-card {
+	width: 170px;
+	height: 370px;
+	margin: 20px 10px;
+	cursor: pointer;
+	border: 1px solid #dfe6e9;
+}
+
+.g-card-item {
+	text-align: center;
+	width: 170px;
+	padding-top: 5px;
+}
+
+.g-card-item img {
+	width: 170px;
+	height: 160px;
+}
+
+.g-card-header {
+	font-weight: bold;
+}
+
+.g-card-content {
+	font-size: 16px;
+	font-weight: bold;
+	color:#0984e3;
+}
+
+.game-name {
+	font-weight: bold;
+	color: #4a69bd;
+}
+
+.a-common{
+	text-align: center;
+	justify-content: center;
+}
+
+
+.c-cards {
+	display: flex;
+}
+
+.c-cards a {
+	text-decoration: none;
+	color: black;
+}
+
+.game-nav {
+	display: flex;
+	width: 900px;
+	justify-content: space-between;
+	margin: 10px 10px 10px 10px;
+}
+
+.game-nav li {
+	list-style: none;
+	cursor: pointer;
+}
+
+.game-nav li:hover{
+	font-weight: bold;
+	color: black;
+}
+
+.g-card-content span.u-score{
+	color: #f0932b;
+	font-weight: bold;
+}
+
+.g-card-content span.c-score{
+	color: #e056fd;
+	font-weight: bold;
+}
+
+.g-card-content span.high-score{
+	color: #ee5253;
+	font-weight: bold;
+}
+
+.g-card-content span.middle-score{
+	color: #5f27cd;
+	font-weight: bold;
+}
+
+.g-card-content span.low-score{
+	color: #4b4b4b;
+	font-weight: bold;
+}
+
+.switch-color{
+	color:#eb4d4b;
+}
+
+.PC-color{
+	color:#130f40;
+}
+
+.PS4-color{
+	color:#4834d4;
+}
+
+.XONE-color{
+	color:#6ab04c;
+}
+
+

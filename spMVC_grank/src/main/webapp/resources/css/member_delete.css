@@ -1,0 +1,43 @@
+@charset "UTF-8";
+div.delete-wrapper{
+	width:600px;
+	border: 2px solid #00b894;
+	margin: 100px auto 60px auto;
+	box-sizing: border-box;
+}
+div.delete-info {
+	width: 560px;
+	border: 2px solid #00b894;
+	border-radius: 10px;
+	margin: 20px auto;
+}
+
+div.delete-info h3 {
+	text-align: center
+}
+
+div.delete-info-content {
+	width: 540px;
+	font-size: 14px;
+	margin: 0 auto 15px auto;
+	text-align: left
+}
+
+div.delete-item {
+	text-align: center;
+}
+
+div.delete-item input {
+	width: 300px;
+	outline: none;
+}
+
+div.delete-item span {
+	color: crimson;
+	font-size: 13px;
+	visibility: hidden;
+}
+
+.delete-confirm {
+	margin-bottom: 20px;
+}

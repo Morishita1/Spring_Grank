@@ -8,7 +8,7 @@
 <div class="flex-wrapper">
 
 	<c:forEach items="${cList}" var="c">
-		<div class="g-card">
+		<div class="c-card">
                 	<c:if test="${c.platform == 'PS4' }">
 	                    <div class="g-card-item g-card-header PS4-color">${c.platform}</div>
                     </c:if>
@@ -26,6 +26,7 @@
 			</div>
 			<div class="g-card-item g-card-content game-name">${c.c_name}</div>
 			<div class="g-card-item g-card-content">${c.c_date}</div>
+			<span class="tooltiptext">아직 출시되지 않은 게임입니다. </span>
 		</div>
 	</c:forEach>
 </div>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/include.jsp"%>
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/gameview.css?ver=2019103103">
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/gameview.css?ver=20191112">
 <%@ include file="../include/header.jsp"%>
 <title>${gDto.game_name}</title>
   <div class="wrapper">
@@ -127,7 +127,7 @@
 			// critic more button
  			if(id == 'c_more'){
  				ccount += 5;
- 	 			if(ccount > cmax) {
+ 	 			if(ccount >= cmax) {
  	 				ccount = cmax;
  	 				$('#c_more').remove();
  	 			}
@@ -148,7 +148,7 @@
  			// 4.user more button
  			if(id == 'u_more'){
  				ucount += 5;
-	 			if(ucount > umax) {
+	 			if(ucount >= umax) {
 	 				ucount = umax;
 	 				$('#u_more').remove();
 		 		}

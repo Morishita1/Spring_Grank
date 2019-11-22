@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/include.jsp"%>
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/board-list.css?ver=2019111301">
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/board-list.css?ver=20191118">
 <%@ include file="../include/header.jsp"%>
-<%
-	String message= request.getParameter("message");
-%>
 <div class="wrapper">
 	<div class="wrapper-header">
 		<span class="header-text">자유 게시판</span>
@@ -83,7 +80,7 @@
 	<div class="wrapper-content list-search">
 		<div class="flex-item">
 			<c:if test="${!empty keyword}">
-	   			<span class="search-comment">"${keyword}"(으)로 검색한 결과는 총 ${count}건 입니다</span>
+	   			<span class="search-comment">"<span style="font-weight:bold">${keyword}</span>"(으)로 검색한 결과는 총 <span style="font-weight:bold">${count}</span>건 입니다</span>
 	  		</c:if>
   		</div>
   		<div class="flex-item">
@@ -107,6 +104,13 @@
 	
 <%@ include file="../include/footer.jsp"%>
 <script>
+	var msg = "${message}"
+	window.onpageshow = function(event){
+		if(event.persisted || (window.performance && window.performance.navigation.type == 2)){
+			msg = '';
+			location.reload();
+		}
+	}
 	// 페이지가 준비되면
 	$(document).ready(function(){
 		var sort = '${sort}';
@@ -124,7 +128,7 @@
 		}
 	})
 	$(function(){
-		var msg = "${message}"
+		
 		// msg가 nologin이면 모달창출력
 		if(msg == 'nologin') {
 			$('#modal-login').css('display', 'block');
@@ -144,7 +148,7 @@
 			var sort = '${sort}'
 			var search_option = $.trim($('#search_option').val());
 			var keyword = $.trim($('#keyword').val());
-			location.href = '${path}/board/list?search_option=' + search_option + '&keyword=' + keyword + '&sort_option=' + sort;
+			location.href = '${path}/board/list?search_option=' + search_option + '&keyword=' + encodeURI(keyword) + '&sort_option=' + sort;
 		})
 		// 검색하는 input태그에서 엔터키로 검색
 		$('#keyword').keyup(function(evt){
@@ -152,10 +156,6 @@
 				$('#board-search-btn').click();
 			}
 		})
-		window.onpageshow = function(event){
-			if(event.persisted || (window.performance && window.performance.navigation.type == 2)){
-				location.reload();
-			}
-		}
+		
 	})
 </script>

@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fnt"%>
 <%@ include file="../include/include.jsp"%>
 <link rel="stylesheet" type="text/css"
-	href="${path}/resources/css/gcard.css?ver=20191112">
+	href="${path}/resources/css/gcard.css?ver=20191114">
 <%@ include file="../include/header.jsp"%>
 <div class="wrapper">
 	<div class="wrapper-header">
@@ -163,8 +163,7 @@
 			} else {// document.location.hash
 				// rankmoreviewlist 페이지 생성
 				rankmoreviewlist();	
-			}
-			
+			}			
 		}
 	})
 	

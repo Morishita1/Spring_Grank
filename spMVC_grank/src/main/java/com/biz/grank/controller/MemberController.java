@@ -53,12 +53,14 @@ public class MemberController {
 				// 쿠키를 찾을 경로를 컨텍스트를 경로로 변경
 				cookie.setPath("/");
 				// 단위는 (초)임으로 7일정도로 유효시간을 설정해 준다. 
-				int amount =60 * 60 * 24 * 7;
+				int amount = 60 * 60 * 24 * 7;
+				// 쿠키 유효기간
 				cookie.setMaxAge(amount);
 				// 쿠키를 적용해준다.
 				response.addCookie(cookie);
 				// currentTimeMillis()가 1/1000초 단위임으로 1000을 곱해서 더해야함
 				long sessionLimit = System.currentTimeMillis()+(1000*amount);
+				// userid와 amount값을 데이터베이스에 담고 자동로그인 했을 때 값을 비교하기 위한 것 
 				mDto.setSessionkey((String)httpSession.getAttribute("userid"));
 				mDto.setSessionlimit(sessionLimit);
 				mService.autoLoginCheck(mDto);
@@ -139,8 +141,10 @@ public class MemberController {
 	// 회원탈퇴 화면단
 	@GetMapping("member_delete")
 	public String member_delete() {
+		
 		return "member/member_delete";
-	}
+		}
+	
 	// id 찾기 화면단
 	@GetMapping("login_check")
 	public String login_idcheck(@RequestParam(defaultValue = "idcheck") String code, Model model) {
@@ -185,10 +189,32 @@ public class MemberController {
 	
 	// 회원 탈퇴
 	@PostMapping("delete")
-	public String delete(String userid ,HttpSession httpSession) {
+	public String delete(String userid ,HttpSession httpSession, HttpServletRequest request, HttpServletResponse response) {
+		
+		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+		if(loginCookie != null) {
+			
+			MemberDto mDto = new MemberDto();
+			// mDto에 세션 아이디 값 담기
+			mDto.setUserid((String)httpSession.getAttribute("userid"));
+			// 로그아웃 처리
+			mService.logout(httpSession);
+			loginCookie.setPath("/");
+			// 쿠키 값이 없을때 유효시간 0으로 설정
+			loginCookie.setMaxAge(0);
+			// 쿠키를 적용해준다.
+			response.addCookie(loginCookie);
+			// 테이블에도 유효시간을 현재시간으로 설정
+			long sessionLimit = System.currentTimeMillis();
+			// sessionkey값 none로 담기
+			mDto.setSessionkey("none");
+			mDto.setSessionlimit(sessionLimit);
+			// mDto에 담겨있는 값으로 변경
+			mService.autoLoginCheck(mDto);
+		}
 		mService.delete(userid);
-		// 회원 탈퇴 후 로그아웃
-		mService.logout(httpSession);
+
+		
 		return "redirect:/";
 	}
 	// 로그아웃
